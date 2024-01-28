@@ -1,0 +1,5 @@
+1. pip install virtualenv
+2. virtualenv env
+3. .\env\Scripts\activate.ps1
+4. Set-ExecutionPolicy Unrestricted
+5. pip install flask

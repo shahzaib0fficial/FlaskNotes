@@ -1,0 +1,19 @@
+{%extends "layout.html"%}
+{%block body%}
+    <form action="/recorded" method="post">
+        <input autocomplete="off" type="userName" name="userName" placeholder="uniqueName..." autofocus required>
+        <span>{{userNameIssue}}</span>
+        <input autocomplete="off" type="text" name="name" placeholder="Your Full Name" required>
+        <select name = "gender">
+            <option disabled selected>Gender</option>
+            {%for gender in genders%}
+                <option value="{{gender}}">{{gender}}</option>
+            {%endfor%}
+        </select>
+        <input type="password" name = "password" placeholder="********" required minlength="8">
+        <span>{{passwordIssue}}</span>
+        <input type="submit" value = "Sign Up">
+    </form>
+    <h3>{{failure}}</h3>
+    <p><a href="/login">Click here to Log In</a></p>
+{%endblock%}

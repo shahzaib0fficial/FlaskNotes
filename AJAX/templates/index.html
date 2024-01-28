@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input autofocus type="text" name="search" id="search" oninput="Display()">
+    <p id="displayResponse"></p>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function Display()
+        {
+            let inputValue = document.querySelector("#search").value;
+            let displayResponse = document.querySelector("#displayResponse");
+    
+            $.ajax(
+                {
+                    url : "/valueDisplay",
+                    type : "POST",
+                    contentType : "application/json;charset=UTF-8",
+                    data : JSON.stringify({value : inputValue}),
+                    success : function(response)
+                    {
+                        displayResponse.innerText = response.value
+                    }
+                }
+            )
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{%extends "layout.html"%}
+{%block body%}
+    <ol>
+        {%for userData in usersData%}
+            <li>Users Name = {{userData[0]}}
+                <ul>
+                    <li>Full Name = {{userData[1]}}</li>
+                    <li>Gender = {{userData[2]}}</li>
+                </ul>
+            </li>
+        {%endfor%}
+    </ol>
+{%endblock%}
